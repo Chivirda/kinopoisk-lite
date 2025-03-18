@@ -2,10 +2,8 @@
 
 require_once __DIR__ . '/vendor/autoload.php';
 
-define('APP_PATH', __DIR__ . '/views/');
+define('APP_PATH', __DIR__);
 
-$routes = require_once __DIR__ . '/config/routes.php';
+use App\App;
 
-$uri = $_SERVER['REQUEST_URI'];
-
-$routes[$uri]();
+(new App())->run();
