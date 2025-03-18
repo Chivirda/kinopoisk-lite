@@ -8,6 +8,6 @@ return [
         include_once APP_PATH . '/views/pages/home.php';
     },
     '/movies' => function (): void {
-        include_once APP_PATH . '/views/pages/home.php';
+        include_once APP_PATH . '/views/pages/movies.php';
     },
 ];
