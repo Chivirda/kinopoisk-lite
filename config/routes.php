@@ -5,9 +5,9 @@ return [
         echo '<h1>Hello World</h1>';
     },
     '/home' => function (): void {
-        echo '<h1>Home</h1>';
+        include_once APP_PATH . '/views/pages/home.php';
     },
     '/movies' => function (): void {
-        echo '<h1>Movies</h1>';
+        include_once APP_PATH . '/views/pages/home.php';
     },
 ];
