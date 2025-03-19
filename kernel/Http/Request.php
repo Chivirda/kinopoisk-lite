@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http;
+namespace App\Kernel\Http;
 
 class Request
 {
@@ -14,7 +14,7 @@ class Request
 
     public static function createFromGlobals(): static
     {
-        return new static($_GET, $_POST, $_COOKIE, $_SERVER, $_FILES);  
+        return new static($_GET, $_POST, $_COOKIE, $_SERVER, $_FILES);
     }
 
     public function uri(): string
