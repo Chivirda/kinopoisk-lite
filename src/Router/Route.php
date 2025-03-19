@@ -10,6 +10,14 @@ class Route
         private $action
     ) {}
 
+    public static function get(string $uri, callable $action): Route {
+        return new static($uri, 'GET', $action);
+    }
+
+    public static function post(string $uri, callable $action): Route {
+        return new static($uri, 'POST', $action);
+    }
+
     public function getUri(): string {
         return $this->uri;
     }
