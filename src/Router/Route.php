@@ -2,7 +2,7 @@
 
 namespace App\Router;
 
-class Route 
+class Route
 {
     public function __construct(
         private string $uri,
@@ -10,23 +10,28 @@ class Route
         private $action
     ) {}
 
-    public static function get(string $uri, callable $action): Route {
+    public static function get(string $uri, $action): Route
+    {
         return new static($uri, 'GET', $action);
     }
 
-    public static function post(string $uri, callable $action): Route {
+    public static function post(string $uri, $action): Route
+    {
         return new static($uri, 'POST', $action);
     }
 
-    public function getUri(): string {
+    public function getUri(): string
+    {
         return $this->uri;
     }
 
-    public function getMethod(): string {
+    public function getMethod(): string
+    {
         return $this->method;
     }
 
-    public function getAction(): callable {
+    public function getAction()
+    {
         return $this->action;
     }
 }
