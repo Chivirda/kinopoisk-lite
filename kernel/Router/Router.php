@@ -2,6 +2,8 @@
 
 namespace App\Kernel\Router;
 
+use App\Kernel\View\View;
+
 class Router
 {
     private array $routes = [
@@ -9,8 +11,9 @@ class Router
         'POST' => [],
     ];
 
-    public function __construct()
-    {
+    public function __construct(
+        private View $view
+    ) {
         $this->initRoutes();
     }
 
@@ -18,7 +21,7 @@ class Router
     {
         $route = $this->findRoute($uri, $method);
 
-        if (! $route) {
+        if (!$route) {
             $this->notFound();
             exit;
         }
@@ -26,7 +29,12 @@ class Router
         if (is_array($route->getAction())) {
             [$controller, $action] = $route->getAction();
 
+            /**
+             * @var \App\Kernel\Controller\Controller $controller
+             */
             $controller = new $controller;
+
+            call_user_func([$controller, 'setView'], $this->view);
             call_user_func([$controller, $action]);
         } else {
             call_user_func($route->getAction());
@@ -39,7 +47,7 @@ class Router
      */
     private function getRoutes(): array
     {
-        return require_once APP_PATH.'/config/routes.php';
+        return require_once APP_PATH . '/config/routes.php';
     }
 
     private function findRoute(string $uri, string $method): Route|false
