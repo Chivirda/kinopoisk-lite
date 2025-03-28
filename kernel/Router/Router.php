@@ -23,7 +23,7 @@ class Router
     {
         $route = $this->findRoute($uri, $method);
 
-        if (!$route) {
+        if (! $route) {
             $this->notFound();
             exit;
         }
@@ -50,7 +50,7 @@ class Router
      */
     private function getRoutes(): array
     {
-        return require_once APP_PATH . '/config/routes.php';
+        return require_once APP_PATH.'/config/routes.php';
     }
 
     private function findRoute(string $uri, string $method): Route|false

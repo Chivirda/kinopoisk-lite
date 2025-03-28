@@ -8,6 +8,7 @@ use App\Kernel\View\View;
 abstract class Controller
 {
     private View $view;
+
     private Request $request;
 
     public function view(string $name): void
