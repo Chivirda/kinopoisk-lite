@@ -5,4 +5,4 @@ require_once APP_PATH.'/vendor/autoload.php';
 
 use App\Kernel\App;
 
-(new App)->run();
+(new App())->run();

@@ -44,8 +44,8 @@ class Validator
 
         return match ($ruleName) {
             'required' => empty($value) ? "Field $field is required" : false,
-            'min' => (strlen($value) < $ruleValue) ? "Field $field must be at least $ruleValue characters" : false,
-            'max' => (strlen($value) > $ruleValue) ? "Field $field must be at most $ruleValue characters" : false,
+            'min' => (mb_strlen($value) < $ruleValue) ? "Field $field must be at least $ruleValue characters" : false,
+            'max' => (mb_strlen($value) > $ruleValue) ? "Field $field must be at most $ruleValue characters" : false,
             'email' => (! filter_var($value, FILTER_VALIDATE_EMAIL)) ? "Field $field must be a valid email" : false,
             default => false,
         };

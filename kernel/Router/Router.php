@@ -34,7 +34,7 @@ class Router
             /**
              * @var \App\Kernel\Controller\Controller $controller
              */
-            $controller = new $controller;
+            $controller = new $controller();
 
             call_user_func([$controller, 'setView'], $this->view);
             call_user_func([$controller, 'setRequest'], $this->request);
