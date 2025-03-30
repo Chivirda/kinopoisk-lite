@@ -35,7 +35,7 @@
         border-radius: 10px;
         box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
         color: #f0f0f0;
-        font-family: 'Inter', sans-serif;
+        font-family: 'Arial', sans-serif;
     }
 
     label {
