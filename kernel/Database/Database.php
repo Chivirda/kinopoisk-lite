@@ -16,7 +16,7 @@ class Database implements DatabaseInterface
     public function insert(string $table, array $data): int|false
     {
         $fields = implode(', ', array_keys($data));
-        $binds = implode(', ', array_map(fn($field) => ':' . $field, array_keys($data)));
+        $binds = implode(', ', array_map(fn ($field) => ':' . $field, array_keys($data)));
         $sql = "INSERT INTO $table ($fields) VALUES ($binds)";
         $stmt = $this->pdo->prepare($sql);
 
