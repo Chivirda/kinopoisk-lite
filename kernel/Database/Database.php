@@ -22,7 +22,7 @@ class Database implements DatabaseInterface
 
         try {
             $stmt->execute($data);
-        } catch (\PDOException $exeption) {
+        } catch (\PDOException $exception) {
             return false;
         }
 
