@@ -13,6 +13,7 @@ class LoginController extends Controller
 
     public function login(): void
     {
+        dd($this->auth());
         $validation = $this->request()->validate([
             'email' => ['required', 'email'],
             'password' => ['required', 'min:6', 'max:255'],
