@@ -2,12 +2,13 @@
 
 namespace App\Kernel\View;
 
+use App\Kernel\Auth\AuthInterface;
 use App\Kernel\Exceptions\ViewNotFoundException;
 use App\Kernel\Session\SessionInterface;
 
 class View implements ViewInterface
 {
-    public function __construct(private SessionInterface $session)
+    public function __construct(private SessionInterface $session, private AuthInterface $auth)
     {
     }
     public function page(string $name): void
@@ -33,14 +34,19 @@ class View implements ViewInterface
             return;
         }
 
+        extract($this->defaultData());
+
         include_once $componentPath;
     }
-
+    /**
+     * @return array<string,mixed>
+     */
     private function defaultData(): array
     {
         return [
             'view' => $this,
-            'session' => $this->session
+            'session' => $this->session,
+            'auth' => $this->auth
         ];
     }
 }
