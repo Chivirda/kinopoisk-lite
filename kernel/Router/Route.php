@@ -9,7 +9,8 @@ class Route
         private string $method,
         private $action,
         private array $middlewares = []
-    ) {}
+    ) {
+    }
 
     public static function get(string $uri, $action, array $middlewares = []): Route
     {

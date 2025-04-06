@@ -12,7 +12,8 @@ class Auth implements AuthInterface
         private DatabaseInterface $db,
         private SessionInterface $session,
         private ConfigInterface $config
-    ) {}
+    ) {
+    }
 
     public function attempt(string $email, string $password): bool
     {
