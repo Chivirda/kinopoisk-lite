@@ -26,7 +26,6 @@ class Validator implements ValidatorInterface
                 if ($error) {
                     $this->errors[$field][] = $error;
                 }
-
             }
         }
 
@@ -47,6 +46,7 @@ class Validator implements ValidatorInterface
             'min' => (mb_strlen($value) < $ruleValue) ? "Field $field must be at least $ruleValue characters" : false,
             'max' => (mb_strlen($value) > $ruleValue) ? "Field $field must be at most $ruleValue characters" : false,
             'email' => (! filter_var($value, FILTER_VALIDATE_EMAIL)) ? "Field $field must be a valid email" : false,
+            'confirmed' => ($value !== $this->data["{$field}_confirmation"]) ? "Field $field must be confirmed" : false,
             default => false,
         };
     }
