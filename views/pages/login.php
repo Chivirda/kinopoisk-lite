@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @var \App\Kernel\View\ViewInterface $view
  * @var \App\Kernel\Session\SessionInterface $session
@@ -6,33 +7,22 @@
 ?>
 
 <?php $view->component('start'); ?>
-<h1>Login</h1>
+<main class="form-signin w-100 m-auto">
+    <form>
+        <div class="d-flex" style="align-items: center; justify-content: space-between">
+            <h2 class="text-light">Вход</h2>
+            <a href="/" class="d-flex align-items-center mb-5 mb-lg-0 text-white text-decoration-none">
+                <h5 class="m-0">Кинопоиск <span class="badge bg-warning warn__badge">Lite</span></h5>
+            </a>
+        </div>
 
-<form action="" method="post">
-    <label for="email">Email</label>
-    <div class="form-group">
-        <input type="email" name="email" id="email">
-    </div>
-    <?php if ($session->has('email')): ?>
-        <ul>
-            <?php foreach ($session->getFlash('email') as $error): ?>
-                <li><?= $error ?></li>
-            <?php endforeach; ?>
-        </ul>
-    <?php endif; ?>
-    <label for="password">Password</label>
-    <div class="form-group">
-        <input type="password" name="password" id="password">
-    </div>
-    <?php if ($session->has('password')): ?>
-        <ul>
-            <?php foreach ($session->getFlash('password') as $error): ?>
-                <li><?= $error ?></li>
-            <?php endforeach; ?>
-        </ul>
-    <?php endif; ?>
-    <div class="form-group">
-        <button type="submit">Login</button>
-    </div>
-</form>
-<?php $view->component('end'); ?>
+        <div class="form-floating mt-3">
+            <input type="email" class="form-control" id="floatingInput" placeholder="name@areaweb.su"> <label for="floatingInput">E-mail</label>
+        </div>
+        <div class="form-floating">
+            <input type="password" class="form-control" id="floatingPassword" placeholder="Пароль"> <label for="floatingPassword">Пароль</label>
+        </div>
+        <button class="btn btn-primary w-100 py-2" type="submit">Войти</button>
+        <p class="mt-5 mb-3 text-light text-center">&copy; Кинопоиск Lite 2025</p>
+    </form>
+</main><?php $view->component('end'); ?>

@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @var \App\Kernel\View\ViewInterface $view
  * @var \App\Kernel\Session\SessionInterface $session
@@ -6,33 +7,46 @@
 ?>
 
 <?php $view->component('start'); ?>
-<h1>Register</h1>
-
-<form action="" method="post">
-    <label for="email">Email</label>
-    <div class="form-group">
-        <input type="email" name="email" id="email">
+<main>
+    <div class="container">
+        <h3 class="mt-3 text-light">Регистрация</h3>
+        <hr>
     </div>
-    <?php if ($session->has('email')): ?>
-        <ul>
-            <?php foreach ($session->getFlash('email') as $error): ?>
-                <li><?= $error ?></li>
-            <?php endforeach; ?>
-        </ul>
-    <?php endif; ?>
-    <label for="password">Password</label>
-    <div class="form-group">
-        <input type="password" name="password" id="password">
+    <div class="container d-flex justify-content-center">
+        <form action="" class="d-flex flex-column justify-content-center w-50 gap-2 mt-5 mb-5">
+            <div class="row g-2">
+                <div class="col-md">
+                    <div class="form-floating">
+                        <input type="text" class="form-control" id="name" placeholder="Иван Иванов">
+                        <label for="name">Имя</label>
+                    </div>
+                </div>
+            </div>
+            <div class="row g-2">
+                <div class="col-md">
+                    <div class="form-floating">
+                        <input type="email" class="form-control" id="email" placeholder="name@areaweb.su">
+                        <label for="email">E-mail</label>
+                    </div>
+                </div>
+            </div>
+            <div class="row g-2">
+                <div class="col-md">
+                    <div class="form-floating">
+                        <input type="password" class="form-control" id="password" placeholder="*********">
+                        <label for="password">Пароль</label>
+                    </div>
+                </div>
+                <div class="col-md">
+                    <div class="form-floating">
+                        <input type="password" class="form-control" id="password_confirmation" placeholder="*********">
+                        <label for="password_confirmation">Подтверждение</label>
+                    </div>
+                </div>
+            </div>
+            <div class="row g-2">
+                <button class="btn btn-primary">Создать аккаунт</button>
+            </div>
+        </form>
     </div>
-    <?php if ($session->has('password')): ?>
-        <ul>
-            <?php foreach ($session->getFlash('password') as $error): ?>
-                <li><?= $error ?></li>
-            <?php endforeach; ?>
-        </ul>
-    <?php endif; ?>
-    <div class="form-group">
-        <button type="submit">Register</button>
-    </div>
-</form>
-<?php $view->component('end'); ?>
+</main><?php $view->component('end'); ?>
