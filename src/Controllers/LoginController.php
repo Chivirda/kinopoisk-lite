@@ -10,36 +10,20 @@ class LoginController extends Controller
     {
         $this->view('login');
     }
-
     public function login(): void
     {
         $email = $this->request()->input('email');
         $password = $this->request()->input('password');
 
         $this->auth()->attempt($email, $password);
-        /* $validation = $this->request()->validate([ */
-        /*     'email' => ['required', 'email'], */
-        /*     'password' => ['required', 'min:6', 'max:255'], */
-        /* ]); */
-        /**/
-        /* if (!$validation) { */
-        /*     foreach ($this->request()->errors() as $field => $error) { */
-        /*         $this->session()->set($field, $error); */
-        /*     } */
-        /*     $this->redirect('/login'); */
-        /* } */
-        /**/
-        /* $user = $this->db()->select('users', [ */
-        /*     'email' => $this->request()->input('email'), */
-        /* ]); */
-        /**/
-        /* if (!$user || !password_verify($this->request()->input('password'), $user['password'])) { */
-        /*     $this->session()->set('login_error', 'Invalid email or password'); */
-        /*     $this->redirect('/login'); */
-        /* } */
-        /**/
-        /* $this->session()->set('user_id', $user['id']); */
-        $this->redirect('/home');
+
+        if ($this->auth()->attempt($email, $password)) {
+            $this->redirect('/');
+        }
+
+        $this->session()->set('error', 'Неверный логин или пароль');
+
+        $this->redirect('/login');
     }
 
     public function logout(): void

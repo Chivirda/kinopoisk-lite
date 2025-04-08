@@ -19,7 +19,7 @@ class Session implements SessionInterface
         return $_SESSION[$key] ?? $default;
     }
 
-    public function getFlash($key, $default = null): array
+    public function getFlash($key, $default = null): array|string
     {
         $value = $this->get($key, $default);
         $this->delete($key);
