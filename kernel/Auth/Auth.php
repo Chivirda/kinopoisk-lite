@@ -56,6 +56,7 @@ class Auth implements AuthInterface
         if ($user) {
             return new User(
                 $user['id'],
+                $user[$this->name()],
                 $user[$this->username()],
                 $user[$this->password()]
             );
@@ -67,6 +68,11 @@ class Auth implements AuthInterface
     public function table(): string
     {
         return $this->config->get('auth.table', 'users');
+    }
+
+    public function name(): string
+    {
+        return $this->config->get('auth.name','name');
     }
 
     public function username(): string
