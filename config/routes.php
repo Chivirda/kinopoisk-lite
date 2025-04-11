@@ -1,6 +1,7 @@
 <?php
 
 use App\Controllers\AdminController;
+use App\Controllers\CategoryController;
 use App\Controllers\HomeController;
 use App\Controllers\LoginController;
 use App\Controllers\MovieController;
@@ -21,4 +22,6 @@ return [
     Route::post('/logout', [LoginController::class, 'logout']),
 
     Route::get('/admin', [AdminController::class, 'index']),
+    Route::get('/admin/categories/add', [CategoryController::class, 'create']),
+    Route::post('/admin/categories/add', [CategoryController::class, 'store']),
 ];
