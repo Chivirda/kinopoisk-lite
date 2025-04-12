@@ -72,7 +72,7 @@ class Auth implements AuthInterface
 
     public function name(): string
     {
-        return $this->config->get('auth.name','name');
+        return $this->config->get('auth.name', 'name');
     }
 
     public function email(): string

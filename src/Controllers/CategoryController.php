@@ -27,7 +27,7 @@ class CategoryController extends Controller
         $this->db()->insert('categories', [
             'name' => $this->request()->input('name'),
         ]);
-        
+
         $this->redirect('/admin');
     }
 }

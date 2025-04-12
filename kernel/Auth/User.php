@@ -9,7 +9,8 @@ class User
         private string $name,
         private string $email,
         private string $password
-    ) {}
+    ) {
+    }
 
     public function id(): int
     {
