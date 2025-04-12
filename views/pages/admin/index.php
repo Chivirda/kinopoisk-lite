@@ -98,9 +98,9 @@
       </thead>
       <tbody>
         <?php foreach ($categories as $category) {
-          $view->component('admin/category', [
-            'category' => $category
-          ]);
+            $view->component('admin/category', [
+              'category' => $category
+            ]);
         } ?>
       </tbody>
     </table>

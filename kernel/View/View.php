@@ -8,7 +8,9 @@ use App\Kernel\Session\SessionInterface;
 
 class View implements ViewInterface
 {
-    public function __construct(private SessionInterface $session, private AuthInterface $auth) {}
+    public function __construct(private SessionInterface $session, private AuthInterface $auth)
+    {
+    }
     public function page(string $name, array $data = []): void
     {
         $viewPath = APP_PATH . "/views/pages/$name.php";
