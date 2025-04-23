@@ -27,5 +27,5 @@ return [
     Route::get('/admin/categories/update', [CategoryController::class, 'edit']),
     Route::post('/admin/categories/update', [CategoryController::class, 'update']),
 
-    Route::post('/admin/categories/add', [CategoryController::class, 'create']),
+    Route::get('/admin/movies/add', [MovieController::class, 'create']),
 ];
